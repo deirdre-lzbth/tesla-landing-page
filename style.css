@@ -1,0 +1,891 @@
+
+/* 01 — PAGE SETUP */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #171a20;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 01b — global typography */
+
+h1,
+h2,
+h3,
+p {
+  letter-spacing: -0.02em;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.primary {
+  background: #3e6ae1;
+  color: white;
+}
+
+.secondary {
+  background: white;
+  color: #171a20;
+}
+
+
+/* 02A — HEADER */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 56px;
+  padding: 0 48px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+header nav,
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+header a {
+  color: #171a20;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.icons a {
+  font-size: 20px;
+}
+
+
+/* 02B — HERO */
+
+#hero {
+  position: relative;
+  height: 74vh;
+  overflow: hidden;
+
+}
+
+#hero > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-text {
+  position: absolute;
+  top: 7%;
+  left: 0;
+  width: 100%;
+  padding: 0 24px;
+  color: white;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 44px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin: 12px 0 24px;
+}
+
+#hero .buttons a {
+  width: 200px;
+  height: 40px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff80;
+}
+
+.dots .active {
+  background: white;
+}
+
+/* 03A — FULL SELF-DRIVING */
+
+#fsd {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 24px;
+  min-height: 440px;
+  background: #f4f4f4;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#fsd > div {
+  flex: 1;
+  padding: 48px 32px;
+}
+
+#fsd h2 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+#fsd h2 span {
+  color: #3e6ae1;
+}
+
+#fsd p {
+  margin: 12px 0 28px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fsd-stats {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.fsd-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fsd-stats strong {
+  font-size: 22px;
+}
+
+.fsd-stats span {
+  font-size: 12px;
+  color: #5c5e62;
+}
+
+#fsd .buttons {
+  justify-content: flex-start;
+}
+
+#fsd .primary {
+  background: #171a20;
+  color: white;
+}
+
+#fsd video {
+  flex: 1;
+  width: 50%;
+  min-width: 0;
+  object-fit: cover;
+}
+
+/* 03B — VEHICLE MODELS */
+
+/* Carousel Container */
+
+#model {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+#model::-webkit-scrollbar {
+  display: none;
+}
+
+/* Vehicle Cards */
+
+#model > div {
+  position: relative;
+  flex: 0 0 65%;
+  height: 580px;
+  overflow: hidden;
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+
+/* Background Images */
+
+#model > div > img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Top Vehicle Descriptions */
+
+#model .vehicle-description {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 3;
+
+  display: block;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Bottom Vehicle Txt */
+
+#model .card-text {
+  position: absolute;
+  bottom: 105px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
+
+  color: white;
+  text-align: left;
+}
+
+#model h2 {
+  position: static;
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+#model p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Vehicle Buttons */
+
+#model .buttons {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+#model .buttons a {
+  flex: 0 0 180px;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+}
+
+#model .primary {
+  background: #3e6ae1;
+  color: white;
+}
+
+#model .secondary {
+  background: white;
+  color: #171a20;
+}
+
+/* Cybertruck Logo */
+
+#model #cybertruck img.cybertruck-logo {
+  position: absolute;
+  top: auto;
+  bottom: 150px;
+  left: 24px;
+  right: auto;
+
+  width: 260px;
+  max-width: 70%;
+  height: auto;
+
+  transform: none;
+  object-fit: contain;
+  z-index: 10;
+}
+
+/* Vehicle Nav */
+
+.model-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 0 24px 24px;
+}
+
+.model-nav a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  color: #171a20;
+  font-size: 28px;
+}
+
+
+/* 03C — OFFERS */
+
+/* Offers Grid */
+
+#offers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+/* Offer Cards */
+
+#offers > div {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f4f4f4;
+}
+
+/* Images — Flush Right */
+
+#offers img {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 45%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+}
+
+/* Txt Container — Flush Left */
+
+#offers .card-text {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 55%;
+  height: 100%;
+  padding: 32px 24px;
+
+  color: #171a20;
+  text-align: left;
+}
+
+/* Headings */
+
+#offers h2 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+/* Descriptions */
+
+#offers p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Learn More Buttons */
+
+#offers .buttons {
+  position: static;
+  display: flex;
+  justify-content: flex-start;
+
+  width: 100%;
+  margin-top: 24px;
+}
+
+#offers .buttons a {
+  position: static;
+  min-width: 140px;
+  height: 40px;
+  padding: 0 16px;
+
+  background: white;
+  color: #171a20;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* 03D — ENERGY CAROUSEL */
+
+#energy {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+#energy::-webkit-scrollbar {
+  display: none;
+}
+
+/* Same card dimensions as vehicle carousel */
+#model > div,
+#energy > div {
+  position: relative;
+  flex: 0 0 65%;
+  height: 580px;
+  overflow: hidden;
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+
+/* Both carousels use full-card images */
+#model > div > img:first-child,
+#energy > div > img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vehicle headings and descriptions */
+#model .card-text {
+  position: absolute;
+  bottom: 105px;
+  left: 24px;
+  right: 24px;
+  color: white;
+  text-align: left;
+}
+
+/* Energy headings and descriptions */
+#energy .card-text {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: white;
+  text-align: left;
+}
+
+/* Shared carousel typography */
+#model h2,
+#energy h2 {
+  position: static;
+  margin: 0;
+  font-size: 36px;
+  line-height: 1.1;
+  text-align: left;
+}
+
+#model p,
+#energy p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Vehicle buttons — bottom-left */
+#model .buttons {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+/* Energy buttons — beneath description */
+#energy .buttons {
+  position: static;
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* Both carousels — matching button dimensions */
+#model .buttons a,
+#energy .buttons a {
+  position: static;
+  flex: 0 0 180px;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  justify-content: center;
+}
+
+/* Blue primary and white secondary buttons */
+#model .primary,
+#energy .primary {
+  background: #3e6ae1;
+  color: white;
+}
+
+#model .secondary,
+#energy .secondary {
+  background: white;
+  color: #171a20;
+}
+
+/* Cybertruck logo */
+
+#model #cybertruck .cybertruck-logo {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+
+  display: block;
+  width: 260px;
+  max-width: 70%;
+  height: auto;
+
+  transform: translateX(-50%);
+  object-fit: contain;
+  z-index: 5;
+}
+
+/* Energy pagination */
+.energy-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 0 24px;
+}
+
+.energy-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a6a6a6;
+}
+
+.energy-dots .active {
+  background: #171a20;
+}
+
+
+/* 04 — FOOTER */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 24px 48px;
+  border-top: 1px solid #eeeeee;
+  background: white;
+}
+
+footer a,
+footer span {
+  color: #5c5e62;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* 05 — RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  header {
+    padding: 0 24px;
+  }
+
+  header nav {
+    gap: 12px;
+  }
+
+  #model > div,
+  #energy > div {
+    flex-basis: 75%;
+  }
+
+  #offers h2 {
+    font-size: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  header {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+  }
+
+  header nav {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #hero {
+    height: 75vh;
+    min-height: 520px;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+  #hero .buttons a {
+    width: 145px;
+    min-width: 0;
+  }
+
+  /* Full Self-Driving */
+  #fsd {
+    flex-direction: column;
+    margin: 16px;
+  }
+
+  #fsd > div {
+    padding: 32px 20px;
+  }
+
+  #fsd video {
+    width: 100%;
+  }
+
+  /* Both carousels */
+  #model,
+  #energy {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  #model > div,
+  #energy > div {
+    flex-basis: 85%;
+    height: 480px;
+  }
+
+  #model h2,
+  #energy h2 {
+    font-size: 30px;
+  }
+
+  #model .card-text {
+    left: 16px;
+    right: 16px;
+    bottom: 105px;
+  }
+
+  #energy .card-text {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  #model .buttons {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  #model .buttons a,
+  #energy .buttons a {
+    flex: 1 1 0;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  /* Offers */
+  #offers {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  #offers > div {
+    height: 300px;
+  }
+
+/* OFFERS — MOBILE */
+
+#offers {
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+#offers > div {
+  height: 300px;
+}
+
+#offers .card-text {
+  width: 60%;
+  padding: 24px 16px;
+}
+
+#offers img {
+  width: 40%;
+}
+
+#offers h2 {
+  font-size: 24px;
+}
+
+#offers .buttons {
+  position: static;
+  margin-top: auto;
+}
+
+/* 04 — FOOTER */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  padding: 32px 48px 48px;
+  background: white;
+}
+
+/* Legal footnotes */
+
+.footer-notes {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.footer-notes p {
+  margin: 0 0 12px;
+
+  color: #5c5e62;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.footer-notes sup {
+  font-size: 9px;
+  vertical-align: super;
+}
+
+/* Footer navigation */
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-links a,
+.footer-links span {
+  color: #5c5e62;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+
+  #model > div,
+  #energy > div {
+    flex-basis: 90%;
+    height: 420px;
+  }
+
+  #model h2,
+  #energy h2 {
+    font-size: 26px;
+  }
+
+  #model p,
+  #energy p {
+    font-size: 13px;
+  }
+
+  #model .buttons a,
+  #energy .buttons a {
+    height: 36px;
+    font-size: 11px;
+  }
+
+  #offers h2 {
+    font-size: 22px;
+  }
+}
